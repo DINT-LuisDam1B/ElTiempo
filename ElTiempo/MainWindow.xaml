@@ -1,0 +1,141 @@
+﻿<Window x:Class="ElTiempo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElTiempo"
+        mc:Ignorable="d"
+        Title="El Tiempo" Height="450" Width="800">
+    <Window.Resources>
+
+        <Style x:Name="styleTextBlockTitulo" TargetType="TextBlock" x:Key="styleTextBlockTitulo">
+            <Setter Property="FontFamily" Value="Segoe UI Black"/>
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="Foreground" Value="Gainsboro"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black"/>
+                </Setter.Value>
+            </Setter>
+
+
+        </Style>
+        <Style x:Name="styleTextBox" TargetType="TextBox" x:Key="styleTextBox">
+            <Setter Property="BorderBrush" Value="Gainsboro"></Setter>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <ControlTemplate x:Key="TextBoxControlTemplate1" TargetType="{x:Type TextBox}">
+            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}" SnapsToDevicePixels="True" CornerRadius="10">
+                <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF569DE5"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+
+    </Window.Resources>
+
+    <Grid x:Name="gridPrincipal">
+
+        <DockPanel x:Name="dockPanelPrincipal">
+            <ListBox DockPanel.Dock="Left">
+                <ListBoxItem>
+                    <StackPanel Orientation="Vertical" Background="AliceBlue">
+                        <TextBlock Text="Lunes" HorizontalAlignment="Center"></TextBlock>
+                        <Image Source="imagenes/cloudy.png" HorizontalAlignment="Center"/>
+                        <TextBlock Text="temperatuda" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Vertical" Background="AliceBlue">
+                        <TextBlock Text="martes" HorizontalAlignment="Center"></TextBlock>
+                        <Image Source="imagenes/cloudy.png" HorizontalAlignment="Center"/>
+                        <TextBlock Text="temperatuda" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Vertical" Background="AliceBlue">
+                        <TextBlock Text="dia" HorizontalAlignment="Center"></TextBlock>
+                        <Image Source="imagenes/cloudy.png" HorizontalAlignment="Center"/>
+                        <TextBlock Text="temperatuda" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Vertical" Background="AliceBlue">
+                        <TextBlock Text="dia" HorizontalAlignment="Center"></TextBlock>
+                        <Image Source="imagenes/cloudy.png" HorizontalAlignment="Center"/>
+                        <TextBlock Text="temperatuda" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Vertical" Background="AliceBlue">
+                        <TextBlock Text="dia" HorizontalAlignment="Center"></TextBlock>
+                        <Image Source="imagenes/cloudy.png" HorizontalAlignment="Center"/>
+                        <TextBlock Text="temperatuda" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Vertical" Background="AliceBlue">
+                        <TextBlock Text="dia" HorizontalAlignment="Center"></TextBlock>
+                        <Image Source="imagenes/cloudy.png" HorizontalAlignment="Center"/>
+                        <TextBlock Text="temperatuda" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <StackPanel Orientation="Vertical" Background="AliceBlue">
+                        <TextBlock Text="domingo" HorizontalAlignment="Center"></TextBlock>
+                        <Image Source="imagenes/cloudy.png" HorizontalAlignment="Center"/>
+                        <TextBlock Text="temperatuda" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                </ListBoxItem>
+
+            </ListBox>
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="Día"></Label>
+                <TextBox x:Name="tbDia" Grid.Column="1" Template="{DynamicResource TextBoxControlTemplate1}"  Style="{StaticResource ResourceKey=styleTextBox}"></TextBox>
+                <Label Content="Predicción" Grid.Row="1"></Label>
+                <TextBox x:Name="tbPrediccion" Grid.Row="1" Grid.Column="1" Template="{DynamicResource TextBoxControlTemplate1}"  Style="{StaticResource ResourceKey=styleTextBox}"></TextBox>
+                <Label Content="Mínima (F)" Grid.Row="2"/>
+                <TextBox x:Name="tbMinima" Grid.Row="2" Grid.Column="1" Template="{DynamicResource TextBoxControlTemplate1}"  Style="{StaticResource ResourceKey=styleTextBox}"></TextBox>
+                <Label Content="Máxima (F)" Grid.Row="3"/>
+                <TextBox x:Name="tbMaxima" Grid.Row="3" Grid.Column="1" Template="{DynamicResource TextBoxControlTemplate1}" Style="{StaticResource ResourceKey=styleTextBox}"></TextBox>
+
+
+
+
+            </Grid>
+            <StackPanel>
+                <TextBlock Text="El tiempo en New York" Style="{StaticResource styleTextBlockTitulo}"/>
+                <Image  Source="imagenes/newyork1.jpg" Stretch="Fill" Margin="10">
+
+            </Image>
+            </StackPanel>
+            
+        </DockPanel>
+
+    </Grid>
+</Window>
